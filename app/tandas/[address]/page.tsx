@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import { useAccount, useContractRead, useBlockNumber } from 'wagmi';
+import { useAccount, useContractRead } from 'wagmi';
 import { useCallback } from 'react';
 import { bigIntToNumber, bigIntToString, formatDate, formatUSDC, secondsToDays } from '@/utils';
 import { CycleInfo, Participant, TandaSummary } from '@/types';

@@ -18,8 +18,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "miTanda",
-  description: "Decentralized onchain miTanda",
+  title: "MiTanda",
+  description: "Decentralized, onchain rotating savings and credit associations (ROSCAs) for global communities.",
 };
 
 export default function RootLayout({

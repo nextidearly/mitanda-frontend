@@ -226,15 +226,16 @@ export default function TandaDetail({ params }: { params: { address: string } })
             >
               {address.slice(0, 4)}...{address.slice(-4)}
             </Link>
-
-
           </h1>
 
           <p className="text-sm bg-gray-100 h-fit px-3 py-0.5 font-medium text-gray-800">
-            <CountdownTimer timestamp={tandaSummary.nextPayoutTimestamp} />
-            <span className="text-sm text-gray-500 ml-2">
-              ({formatDate(tandaSummary.nextPayoutTimestamp)})
-            </span>
+            {
+              tandaSummary.nextPayoutTimestamp && <><CountdownTimer timestamp={tandaSummary.nextPayoutTimestamp} />
+                <span className="text-sm text-gray-500 ml-2">
+                  ({formatDate(tandaSummary.nextPayoutTimestamp)})
+                </span></>
+            }
+
           </p>
         </div>
 
@@ -294,7 +295,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
                   isCurrentRecipient
                     ? `You can claim your payout starting ${formatDate(tandaSummary.nextPayoutTimestamp)}.`
                     : `You can trigger the payout for ${cycleInfo?.payoutAddress.slice(0, 6)}...${cycleInfo?.payoutAddress.slice(-4)} starting ${formatDate(tandaSummary.nextPayoutTimestamp)}.`
-                }                
+                }
                 className={`${isCurrentRecipient ? 'bg-yellow-600 hover:bg-yellow-700' : 'bg-orange-600 hover:bg-orange-700'} text-white px-4 py-2 rounded-md text-sm`}
               />
               <TransactionStatus>

@@ -27,6 +27,7 @@ export interface CurrentStatus {
     isActive: boolean;
     isOpen: boolean;
     isCompleted: boolean;
+    participantListLength: bigint;
 }
 
 export interface TandaData {

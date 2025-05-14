@@ -29,7 +29,8 @@ export default function TandaCard({ tandaId }: { tandaId: bigint }) {
       nextPayoutTimestamp: BigInt(0),
       isActive: false,
       isOpen: true,
-      isCompleted: false
+      isCompleted: false,
+      participantListLength: BigInt(0)
     } as CurrentStatus
   ] = tandaData || [];
 
@@ -129,6 +130,11 @@ export default function TandaCard({ tandaId }: { tandaId: bigint }) {
             <span className="font-medium">{formatUSDC(currentStatus.totalFunds)} USDC</span>
           </div>
         </div>
+      </div>
+
+      <div className="flex justify-between">
+        <span className="text-gray-500">Participant:</span>
+        <span className="font-medium">{currentStatus.participantListLength.toString()}/{generalInfo.participantCount.toString()}</span>
       </div>
 
       <div className="mt-auto">

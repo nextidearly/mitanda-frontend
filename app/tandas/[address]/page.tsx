@@ -245,10 +245,10 @@ export default function TandaDetail({ params }: { params: { address: string } })
             }`}>
             {getStateString(tandaSummary.state)}
           </span>
-          {isParticipant && (
+          {tandaSummary.state === 1 && isParticipant && (
             <span className={`px-3 py-1 rounded-full text-sm font-medium ${isInGoodStanding ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
               }`}>
-              {isInGoodStanding ? 'In Good Standing' : 'Payment Needed'}
+              {isInGoodStanding ? 'In Good Standing' : Number(cyclesToPayRemaining()) > 0? 'Payment Needed': 'Fully Paid'}
             </span>
           )}
         </div>
@@ -267,7 +267,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
           )}
 
           {/* Make Payment Button */}
-          {tandaSummary.state === 1 && isParticipant && userAddress && (
+          {tandaSummary.state === 1 && isParticipant && userAddress && Number(cyclesToPayRemaining()) > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <Transaction calls={() => makePaymentCalls(1) as any} chainId={84532}>
                 <TransactionButton text={`Pay 1 Cycle (${formatUSDC(contributionAmount)} USDC)`} className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm' />

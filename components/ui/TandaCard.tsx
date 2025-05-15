@@ -75,7 +75,7 @@ export default function TandaCard({ tandaId }: { tandaId: bigint }) {
       <div className="flex justify-between items-start mb-4">
         <div>
           <h3 className="text-lg font-bold text-gray-800">
-            Tanda
+            Tanda #{Number(tandaId.toString()) + 1}
             <Link
               href={`${process.env.NEXT_PUBLIC_EXPLORER}/address/${generalInfo.tandaAddress}`}
               target='_blank'
@@ -140,7 +140,7 @@ export default function TandaCard({ tandaId }: { tandaId: bigint }) {
       <div className="mt-auto">
         <Link
           href={`/tandas/${generalInfo.tandaAddress}`}
-          className={`block w-full text-center ${currentStatus.isOpen ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700'} text-white font-medium py-2 px-4 rounded-md transition-colors duration-200`}
+          className={`block w-full text-center ${currentStatus.state == 0 ? 'bg-blue-600 hover:bg-blue-700 text-white' : currentStatus.state == 1 ? 'bg-green-200 hover:bg-green-300 text-green-700' : 'bg-purple-200 hover:bg-purple-300 text-purple-700'}  font-medium py-2 px-4 rounded-md transition-colors duration-200`}
         >
           {currentStatus.isOpen ? 'Join Tanda' : 'View Details'}
         </Link>

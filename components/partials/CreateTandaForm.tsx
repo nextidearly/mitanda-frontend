@@ -167,7 +167,7 @@ export default function CreateTandaForm() {
           <Transaction calls={calls as any} chainId={84532} className='w-fit'>
             <TransactionButton
               text="Submit"
-              className="bg-blue-700 rounded-md hover:bg-blue-600 duration-100"
+              className="bg-blue-600 rounded-md hover:bg-blue-700 duration-100 py-2 px-4 font-normal"
             />
             <TransactionStatus>
               <TransactionStatusLabel />
@@ -176,9 +176,9 @@ export default function CreateTandaForm() {
           </Transaction>
         ) : <button
           type="submit"
-          className="bg-blue-700 text-white py-3 px-4 rounded hover:bg-blue-600 transition font-semibold"
+          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
         >
-          Submit
+          Prepare and Build Transaction
         </button>}
 
       </form>

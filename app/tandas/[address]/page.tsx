@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useAccount, useContractRead } from 'wagmi';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { bigIntToNumber, bigIntToString, formatDate, formatUSDC, secondsToDays } from '@/utils';
 import { CycleInfo, Participant, TandaSummary } from '@/types';
 import { Transaction, TransactionButton, TransactionStatus, TransactionStatusLabel, TransactionStatusAction } from '@coinbase/onchainkit/transaction';
@@ -162,18 +162,17 @@ export default function TandaDetail({ params }: { params: { address: string } })
       }];
   }, [address, contributionAmount]);
 
+  const myCurrentStatus = useMemo(() => {
+    return participants ? participants.find(p => p.addr === userAddress) : {} as Participant;
+  }, [participants]);
 
   const cyclesToPayRemaining = useCallback(() => {
-    const me = participants.find(p => p.addr === userAddress);
-    const remaining = tandaSummary && me ? tandaSummary?.participantsCount - me?.paidUntilCycle : 1
-
-    return remaining;
-  }, [participants, participants]);
+    return tandaSummary && myCurrentStatus ? tandaSummary?.participantsCount - myCurrentStatus?.paidUntilCycle : 1;
+  }, [myCurrentStatus, tandaSummary]);
 
   // Make payment transaction
   const makePaymentCallsAllRemaining = useCallback(() => {
-    const me = participants.find(p => p.addr === userAddress);
-    const cyclesToPayRemaining = tandaSummary && me ? tandaSummary?.participantsCount - me?.paidUntilCycle : 1
+    const cyclesToPayRemaining = tandaSummary && myCurrentStatus ? tandaSummary?.participantsCount - myCurrentStatus?.paidUntilCycle : 1
     return [
       {
         abi: ERC20ABI,
@@ -187,7 +186,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
         functionName: 'makePayment',
         args: [BigInt(cyclesToPayRemaining)],
       }];
-  }, [address, contributionAmount, tandaSummary]);
+  }, [address, contributionAmount, tandaSummary, myCurrentStatus]);
 
   // Trigger payout transaction
   const triggerPayoutCalls = useCallback(() => {

@@ -34,7 +34,7 @@ export default function TandaCard({ tandaId }: { tandaId: bigint }) {
     } as CurrentStatus
   ] = tandaData || [];
 
-  const formatUSDC = (value: bigint) => (Number(value) / 1e18).toFixed(0);
+  const formatUSDC = (value: bigint) => (Number(value) / 1e6).toFixed(0);
   const secondsToDays = (seconds: bigint) => (Number(seconds) / 86400).toFixed(0);
   const formatDate = (timestamp: bigint) => {
     if (timestamp === BigInt(0)) return 'Not started';

@@ -10,7 +10,7 @@ export const bigIntToString = (value?: bigint): string => {
 };
 
 export const formatUSDC = (amount?: bigint) => {
-    return amount ? formatUnits(amount, 18) : '0';
+    return amount ? formatUnits(amount, 6) : '0';
 };
 
 export const formatDate = (timestamp?: bigint) => {

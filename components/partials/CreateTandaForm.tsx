@@ -29,10 +29,10 @@ export default function CreateTandaForm() {
         address: process.env.NEXT_PUBLIC_TANDA_MANAGER!,
         functionName: 'createTanda',
         args: [
-          BigInt(formValues.contributionAmount * 1e18),
-          BigInt(formValues.payoutInterval * 86400),
+          BigInt((formValues.contributionAmount * 1e6).toFixed(0)),
+          BigInt((formValues.payoutInterval * 86400).toFixed(0)),
           formValues.participantCount,
-          BigInt(formValues.gracePeriod * 86400),
+          BigInt((formValues.gracePeriod * 86400).toFixed(0)),
         ],
       },
     ];
@@ -93,7 +93,7 @@ export default function CreateTandaForm() {
               {...register('payoutInterval', {
                 required: 'Payout interval is required',
                 min: {
-                  value: 1,
+                  value: 0,
                   message: 'Minimum interval is 1 day',
                 },
                 max: {

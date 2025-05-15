@@ -12,12 +12,17 @@ export function AppOnchainKitProvider(props: { children: ReactNode }) {
             config={{
                 appearance: {
                     name: 'MiTanda',
-                    logo: '/assets/logo.jpeg',
+                    logo: 'https://app.mitanda.org/assets/logo.jpeg',
                     mode: 'light',
                     theme: 'default',
                 },
                 wallet: {
-                    display: 'modal'
+                    display: 'modal',
+                    supportedWallets: {
+                        rabby: true,
+                        trust: true,
+                        frame: true,
+                    },
                 },
             }}
         >

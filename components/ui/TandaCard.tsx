@@ -10,7 +10,7 @@ export default function TandaCard({ tandaId }: { tandaId: bigint }) {
     abi: TandaManagerABI,
     functionName: 'getTandaData',
     args: [tandaId],
-    chainId: 84532
+    chainId: 8453
   });
 
   const [

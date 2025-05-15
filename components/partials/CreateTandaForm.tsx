@@ -164,7 +164,7 @@ export default function CreateTandaForm() {
 
         {/* Coinbase Transaction UI (only appears if values are validated) */}
         {validatedValues ? (
-          <Transaction calls={calls as any} chainId={84532} className='w-fit'>
+          <Transaction calls={calls as any} chainId={8453} className='w-fit'>
             <TransactionButton
               text="Submit"
               className="bg-blue-600 rounded-md hover:bg-blue-700 duration-100 py-2 px-4 font-normal"

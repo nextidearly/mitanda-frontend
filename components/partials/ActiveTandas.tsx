@@ -11,7 +11,7 @@ export default function ActiveTandas() {
     address: contract_address.tanda_manager,
     abi: TandaManagerABI,
     functionName: 'getActiveTandaIds',
-    chainId: 84532
+    chainId: 8453
   });
 
   return (

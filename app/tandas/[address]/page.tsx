@@ -19,7 +19,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
     address: address as `0x${string}`,
     abi: TandaABI,
     functionName: 'getTandaSummary',
-    chainId: 84532,
+    chainId: 8453,
   });
 
   const tandaSummary: TandaSummary | undefined = tandaSummaryData ? {
@@ -35,7 +35,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
     address: address as `0x${string}`,
     abi: TandaABI,
     functionName: 'getAllParticipants',
-    chainId: 84532
+    chainId: 8453
   }) as { data: Participant[] };
 
   // Fetch current cycle info
@@ -43,7 +43,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
     address: address as `0x${string}`,
     abi: TandaABI,
     functionName: 'getCurrentCycleInfo',
-    chainId: 84532
+    chainId: 8453
   });
 
   const cycleInfo: CycleInfo | undefined = cycleInfoData ? {
@@ -57,7 +57,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
     address: address as `0x${string}`,
     abi: TandaABI,
     functionName: 'contributionAmount',
-    chainId: 84532
+    chainId: 8453
   }) as { data: bigint };
 
   // Fetch payout interval
@@ -65,7 +65,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
     address: address as `0x${string}`,
     abi: TandaABI,
     functionName: 'payoutInterval',
-    chainId: 84532
+    chainId: 8453
   }) as { data: bigint };
 
   // Fetch grace period
@@ -73,7 +73,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
     address: address as `0x${string}`,
     abi: TandaABI,
     functionName: 'gracePeriod',
-    chainId: 84532
+    chainId: 8453
   }) as { data: bigint };
 
   // Fetch payout order if assigned
@@ -81,7 +81,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
     address: address as `0x${string}`,
     abi: TandaABI,
     functionName: 'getPayoutOrder',
-    chainId: 84532
+    chainId: 8453
   }) as { data: bigint[] };
 
   // Check if user is participant
@@ -90,7 +90,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
     abi: TandaABI,
     functionName: 'isParticipant',
     args: [userAddress],
-    chainId: 84532
+    chainId: 8453
   }) as { data: boolean };
 
   // Check if user is in good standing
@@ -99,7 +99,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
     abi: TandaABI,
     functionName: 'isParticipantInGoodStanding',
     args: [userAddress],
-    chainId: 84532
+    chainId: 8453
   }) as { data: boolean };
 
   // Check if user is the current payout recipient
@@ -257,7 +257,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
         <div className="flex flex-wrap gap-2">
           {/* Join Button */}
           {tandaSummary.state === 0 && !isParticipant && userAddress && (
-            <Transaction calls={joinTandaCalls as any} chainId={84532} >
+            <Transaction calls={joinTandaCalls as any} chainId={8453} >
               <TransactionButton text="Join Tanda" className='bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm' />
               <TransactionStatus>
                 <TransactionStatusLabel />
@@ -269,14 +269,14 @@ export default function TandaDetail({ params }: { params: { address: string } })
           {/* Make Payment Button */}
           {tandaSummary.state === 1 && isParticipant && userAddress && Number(cyclesToPayRemaining()) > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <Transaction calls={() => makePaymentCalls(1) as any} chainId={84532}>
+              <Transaction calls={() => makePaymentCalls(1) as any} chainId={8453}>
                 <TransactionButton text={`Pay 1 Cycle (${formatUSDC(contributionAmount)} USDC)`} className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm' />
                 <TransactionStatus>
                   <TransactionStatusLabel />
                   <TransactionStatusAction />
                 </TransactionStatus>
               </Transaction>
-              <Transaction calls={() => makePaymentCallsAllRemaining() as any} chainId={84532}>
+              <Transaction calls={() => makePaymentCallsAllRemaining() as any} chainId={8453}>
                 <TransactionButton text={`Pay All Remaining (${formatUSDC(contributionAmount * BigInt(cyclesToPayRemaining()))} USDC)`} className='bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm' />
                 <TransactionStatus>
                   <TransactionStatusLabel />
@@ -288,7 +288,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
 
           {/* Trigger Payout Button */}
           {tandaSummary.state === 1 && canTriggerPayout && isParticipant && userAddress && (
-            <Transaction calls={triggerPayoutCalls as any} chainId={84532}>
+            <Transaction calls={triggerPayoutCalls as any} chainId={8453}>
               <TransactionButton
                 text={
                   isCurrentRecipient

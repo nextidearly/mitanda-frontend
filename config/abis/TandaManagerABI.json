@@ -452,6 +452,11 @@
             "internalType": "bool",
             "name": "isCompleted",
             "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "participantListLength",
+            "type": "uint256"
           }
         ],
         "internalType": "struct CurrentStatus",

@@ -100,7 +100,7 @@ export default function TandaCard({ tandaId }: { tandaId: bigint }) {
         </span>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-6">
+      <div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-2">
         <div className="space-y-2">
           <div className="flex justify-between">
             <span className="text-gray-500">Contribution:</span>
@@ -132,7 +132,7 @@ export default function TandaCard({ tandaId }: { tandaId: bigint }) {
         </div>
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between text-sm mb-4">
         <span className="text-gray-500">Participant:</span>
         <span className="font-medium">{currentStatus.participantListLength.toString()}/{generalInfo.participantCount.toString()}</span>
       </div>

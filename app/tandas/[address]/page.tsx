@@ -306,7 +306,7 @@ export default function TandaDetail({ params }: { params: { address: string } })
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-3">
           <div className="bg-gray-50 p-4 rounded-lg">
             <h3 className="text-sm font-medium text-gray-500">Contribution Amount</h3>
             <p className="text-2xl font-semibold text-gray-800">
@@ -323,6 +323,12 @@ export default function TandaDetail({ params }: { params: { address: string } })
             <h3 className="text-sm font-medium text-gray-500">Total Funds</h3>
             <p className="text-2xl font-semibold text-gray-800">
               {formatUSDC(tandaSummary.totalFunds)} USDC
+            </p>
+          </div>
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <h3 className="text-sm font-medium text-gray-500">Participant</h3>
+            <p className="text-2xl font-semibold text-gray-800">
+              {participants.length} / {tandaSummary.participantsCount.toString()}
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 # **MiTanda: Trustless, Borderless Savings Circles for the Onchain Era**  
 
-![https://hebbkx1anhila5yf.public.blob.vercel-storage.com/miTanda_logo.jpg-alJGiI27CW2YaGstyXezgtUYebwOjG.jpeg]()
+![MiTanda Logo](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/miTanda_logo.jpg-alJGiI27CW2YaGstyXezgtUYebwOjG.jpeg)  
 
 ## **Overview**  
 MiTanda revolutionizes traditional rotating savings and credit associations (ROSCAs)—known as *tandas*, *cundinas*, or *susus*—by bringing them fully onchain. Built on **Base L2**, MiTanda eliminates trust issues, geographic barriers, and lack of transparency by leveraging smart contracts for secure, autonomous, and borderless savings circles.  

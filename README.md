@@ -43,9 +43,10 @@ With over **200 million people** worldwide relying on ROSCAs—and **40% of Lati
 3. Set up environment variables:  
    Create a `.env.local` file and configure:  
    ```env
-   NEXT_PUBLIC_INFURA_ID=your_infura_key
-   NEXT_PUBLIC_BASE_RPC_URL=your_base_rpc_url
-   NEXT_PUBLIC_CONTRACT_ADDRESS=your_smart_contract_address
+    NEXT_PUBLIC_ONCHAINKIT_API_KEY=
+    NEXT_PUBLIC_TANDA_MANAGER=
+    NEXT_PUBLIC_USDC_ADDRESS=
+    NEXT_PUBLIC_EXPLORER=https://basescan.org
    ```
 4. Run the development server:  
    ```bash
@@ -53,15 +54,6 @@ With over **200 million people** worldwide relying on ROSCAs—and **40% of Lati
    ```
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.  
 
-### **Smart Contract Interaction**  
-- Deploy your own MiTanda smart contract or interact with the existing one using:  
-  ```bash
-  npx hardhat run scripts/deploy.js --network base
-  ```
-- Verify the contract on Etherscan/BaseScan:  
-  ```bash
-  npx hardhat verify --network base DEPLOYED_CONTRACT_ADDRESS
-  ```
 
 ## **Contributing**  
 We welcome contributions! Please:  
